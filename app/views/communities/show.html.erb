@@ -1,2 +1,17 @@
-<%= @community.name %>
-<p><%= simple_format @community.rules %></p>
+<div class="row">
+  <div class="col-md-10">
+    <div class="card">
+      <%= @community.name %>
+      <% @posts.each do |post| %>
+        <h4><%= link_to post.title, community_post_path(@community, post) %></h4>
+        <p><%= truncate post.body, length: 200 %></p>
+      <% end %>
+      <small><%= simple_format @community.rules %></small>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="float-right" align="right">
+      <%= link_to "Create New Post", new_community_post_path(@community), class: "btn btn-sm btn-primary float-right" %>
+    </div>
+  </div>
+</div>
