@@ -12,10 +12,10 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-10 pt-3 mb-4 bp-3 border-bottom">
-      <h3><%= link_to "Reddit Clone", root_path %></h3>
+    <div class="col-10 pt-3 bp-3">
+      <h3><%= link_to "Reddit Clone", root_path, class: "link" %></h3>
     </div>
-    <div class="col-2 pt-3 mb-4 bp-3 border-bottom">
+    <div class="col-2 pt-3 bp-3">
       <div class="float-right">
         <% if account_signed_in? %>
           <div class="dropdown">
