@@ -3,7 +3,7 @@
     <div class="card">
       <%= @community.name %>
       <% @posts.each do |post| %>
-        <h4><%= link_to post.title, community_post_path(@community, post) %></h4>
+        <h4><%= link_to post.title, community_post_path(@community, post), class: "link" %></h4>
         <p><%= truncate post.body, length: 200 %></p>
       <% end %>
       <small><%= simple_format @community.rules %></small>
