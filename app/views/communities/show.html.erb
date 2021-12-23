@@ -1,20 +1,27 @@
+
 <div class="row">
-  <div class="col-md-10">
-    <div class="card">
-      <h3><%= @community.name %></h3>
-      <div class="row">
-        <div class="col-sm-8">
-          <%= render partial: "posts/list", locals: { posts: @posts } %>
-        </div>
-        <div class="col-4">
-          <small><%= simple_format @community.rules %></small>
-        </div>
-      </div>
+  <div class="col-md-12">
+    <div class="float-right" align="right">
+      <%= link_to "Create New Post", new_community_post_path(@community), class: "btn btn-primary float-right" %>
     </div>
   </div>
-  <div class="col-md-2">
-    <div class="float-right" align="right">
-      <%= link_to "Create New Post", new_community_post_path(@community), class: "btn btn-sm btn-primary float-right" %>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <h3><%= @community.name %></h3>
+    <div class="row">
+      <div class="col-sm-8">
+        <%= render partial: "posts/list", locals: { posts: @posts } %>
+      </div>
+      <div class="col-4">
+        <div class="card p-3">
+          <p class="h5">About this community</p>
+          <p class="mt-2"><%= @community.summary %></p>
+          <p><%= pluralize @subscriber_count, "Member" %> </p>
+        </div>
+        
+        <small><%= simple_format @community.rules %></small>
+      </div>
     </div>
   </div>
 </div>

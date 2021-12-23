@@ -8,6 +8,7 @@ class CommunitiesController < ApplicationController
 
   def show
     @posts = @community.posts
+    @subscriber_count = @community.subscribers.count
   end
 
   def new
@@ -32,7 +33,7 @@ class CommunitiesController < ApplicationController
   end
 
   def community_values
-    params.require(:community).permit(:name, :url, :rules)
+    params.require(:community).permit(:name, :url, :summaty, :rules)
   end
 
 end
