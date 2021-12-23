@@ -1,12 +1,13 @@
 class CommentsController < ApplicationController
   def create
-    @account = Comments.new comments_params
-    @account.account_id = current_account.id
+    @comment = Comments.new comment_params
+    @comment.account_id = current_account.id
     
     respond_to do |format|
       format.js {
-        if comment.save
-          render "messages/create"
+        if @comment.save
+          @comments = Comment.where(post_id: @comment.post_id)
+          render "comments/create"
         else
         # enable to save
         end
@@ -14,7 +15,7 @@ class CommentsController < ApplicationController
     end
   end
 
-  def comments_params
+  def comment_params
     params.require(:comment).permit(:message, :post_id)
   end
 end
