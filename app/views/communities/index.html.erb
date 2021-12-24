@@ -1,23 +1,21 @@
-
-
 <% if @communities.size > 0 %>
-  <% @communities.each do |community| %>
-    <div class="row">
-      <div class="col-md-9">
-        <div class="card">
+  <div class="row">
+    <div class="col-md-9">
+      <% @communities.each do |community| %>
+        <div class="card p-3 mt-2">
           <h3><%= link_to community.name, community %></h3>
           <%= simple_format community.rules %>
         </div>
-      </div>
-      <div class="col-md-3">
-        <% if account_signed_in? %>
-          <div class="float-right" align="right">
-            <%= link_to "Create New Community", new_community_path, class: "btn btn-outline-primary link" %>
-          </div>
-        <% end %>
-      </div>
+      <% end %>
     </div>
-  <% end %>
+    <div class="col-md-3">
+      <% if account_signed_in? %>
+        <div class="float-right" align="right">
+          <%= link_to "Create New Community", new_community_path, class: "btn btn-outline-primary link" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 <% else %>
   <p>No Communities to display</p>
 <% end %>
